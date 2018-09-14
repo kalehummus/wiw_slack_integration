@@ -1,26 +1,20 @@
 
-SLACK_CLIENT_ID=297545061475.298680398310
-SLACK_CLIENT_SECRET=eea5ed408ef60c35129165c9838605bb
-
 token
 channel
 shift_start_next_half_hour
 WIW_USERNAME
 
 
-bot user token xoxb-305815039251-GoexUD6TAM02tfgpVZ6enDEG
 
 GET DMs:
   curl -X GET "https://slack.com/api/conversations.list?types=im" \
-  -H "Authorization: Bearer xoxb-305815039251-GoexUD6TAM02tfgpVZ6enDEG" 
+  -H "Authorization: Bearer SLACK_TOKEN"
 
 
-token: xoxb-305815039251-GoexUD6TAM02tfgpVZ6enDEG
-types: ims
 
 
 POST A MESSAGE:
-    curl -X POST -H 'Authorization: Bearer xoxb-305815039251-GoexUD6TAM02tfgpVZ6enDEG' \
+    curl -X POST -H 'Authorization: Bearer SLACK_TOKEN' \
     -H 'Content-type: application/json' \
     --data '{"channel":"DCU0L9K0S","text":"I hope the tour went well, Mr. Wonka."}' \
     https://slack.com/api/chat.postMessage
