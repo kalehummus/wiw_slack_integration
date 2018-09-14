@@ -3,6 +3,7 @@ require 'wheniwork'
 require './user.rb'
 require './shift.rb'
 load '.env'
+# require './slack_handles.rb'
 
 WhenIWork.configure do |c|
   c.username = WIW_USERNAME
@@ -11,14 +12,24 @@ WhenIWork.configure do |c|
 end
 
 client = WhenIWork::Client.new
+
+
 response = client.shifts()
 # p response.to_json
+
 
 shifts = response["shifts"]
 positions = response["positions"]
 users = response["users"]
 
-#shifts is an array of all the shift hashes
+
+users.each do |user|
+
+#  p user["first_name"]#, user["last_name"], user["id"]
+  # p user["first_name"]
+end
+
+# shifts is an array of all the shift hashes
 
 def shift_start_next_half_hour(shift_start_time)
   time = Time.now
@@ -61,7 +72,7 @@ end
 
 
 p shifts_that_start_soon
-
+# ------
 # users = response["users"]
 #
 # users.each do |user|
